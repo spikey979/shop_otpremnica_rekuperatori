@@ -1,4 +1,4 @@
-# shop_otpremnica
+# shop_otpremnica za rekuperatore
 
 
 # generiranje PDF otpremnice
