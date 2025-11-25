@@ -3,7 +3,7 @@
 
 // Function to generate invoice
 function generiraj_otpremnicu($data) {
-	$image_path = plugin_dir_path(__FILE__) . 'images/barbeca_logo.png';
+	$image_path = plugin_dir_path(__FILE__) . 'images/logo.png';
 
 	// Ensure no output has been sent
 	if (headers_sent()) {
@@ -235,7 +235,7 @@ function generiraj_otpremnicu($data) {
 
 
 function generiraj_racun_metro($data) {
-    $image_path = plugin_dir_path(__FILE__) . 'images/barbeca_logo.png';
+    $image_path = plugin_dir_path(__FILE__) . 'images/logo.png';
 
     if (headers_sent()) {
         wp_die('Some output has already been sent. Unable to generate PDF.');
@@ -537,7 +537,7 @@ function generiraj_racun_metro($data) {
 
 
 function generiraj_racun_pevex($data) {
-    $image_path = plugin_dir_path(__FILE__) . 'images/barbeca_logo.png';
+    $image_path = plugin_dir_path(__FILE__) . 'images/logo.png';
 
     if (headers_sent()) {
         wp_die('Some output has already been sent. Unable to generate PDF.');
