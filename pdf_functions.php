@@ -168,8 +168,7 @@ function generiraj_otpremnicu($data) {
 	$pdf->Cell(70, 5, $stupac2_red4, 0, 1);
 	#$pdf->Cell(60, 5, $dodatno_polje_2, 0, 1);
 	$pdf->Ln(10);
-
-	
+ 
 
 	// Table header
 	$pdf->SetFillColor(0, 0, 0);
@@ -184,6 +183,8 @@ function generiraj_otpremnicu($data) {
 
 	// Reset text color
 	$pdf->SetTextColor(0, 0, 0);
+
+    $pdf->SetFont('DejaVu', '', 8);
 
 	// Order Items
 	foreach ($items as $item) {
@@ -217,6 +218,8 @@ function generiraj_otpremnicu($data) {
 
 	// Razmak između tablica
 	$pdf->Ln(5);
+
+    $pdf->SetFont('DejaVu', '', 9);
 
 	// Donja tablica - jedan red bez headera
 	$pdf->SetX($pdf->GetX() + $left_margin);
