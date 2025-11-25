@@ -175,9 +175,12 @@ function generiraj_otpremnicu($data) {
 	$pdf->SetFillColor(0, 0, 0);
 	$pdf->SetTextColor(255, 255, 255);
 	$pdf->SetX($pdf->GetX() + $left_margin);
-	$pdf->Cell(30, 7, 'Artikl', 1, 0, 'C', true);
-	$pdf->Cell(130, 7, 'Naziv artikla', 1, 0, 'C', true);
-	$pdf->Cell(30, 7, 'Kol.', 1, 1, 'C', true);
+	$pdf->Cell(25, 7, 'Artikl', 1, 0, 'C', true);
+	$pdf->Cell(80, 7, 'Naziv artikla', 1, 0, 'C', true);
+	$pdf->Cell(20, 7, 'Neto', 1, 0, 'C', true);
+	$pdf->Cell(20, 7, 'Bruto', 1, 0, 'C', true);
+	$pdf->Cell(25, 7, 'Tarifna ozn.', 1, 0, 'C', true);
+	$pdf->Cell(15, 7, 'Kol.', 1, 1, 'C', true);
 
 	// Reset text color
 	$pdf->SetTextColor(0, 0, 0);
@@ -191,24 +194,42 @@ function generiraj_otpremnicu($data) {
  
 
 		$pdf->SetX($pdf->GetX() + $left_margin);
-		$pdf->Cell(30, 7, $product_sku, 1, 0, 'C');
-		$pdf->Cell(130, 7, $product_name, 1, 0, 'L');
-		$pdf->Cell(30, 7, $quantity, 1, 1, 'C');
+		$pdf->Cell(25, 7, $product_sku, 1, 0, 'C');
+		$pdf->Cell(80, 7, $product_name, 1, 0, 'L');
+		$pdf->Cell(20, 7, '', 1, 0, 'C'); // Neto - prazno
+		$pdf->Cell(20, 7, '', 1, 0, 'C'); // Bruto - prazno
+		$pdf->Cell(25, 7, '', 1, 0, 'C'); // Tarifna ozn. - prazno
+		$pdf->Cell(15, 7, $quantity, 1, 1, 'C');
 	}
 
 	// Add empty rows if specified
 	if ($dodatni_prazni_retci > 0) {
 		for ($i = 0; $i < $dodatni_prazni_retci; $i++) {
 			$pdf->SetX($pdf->GetX() + $left_margin);
-			$pdf->Cell(30, 7, '', 1, 0, 'C');
-			$pdf->Cell(130, 7, '', 1, 0, 'L');
-			$pdf->Cell(30, 7, '', 1, 1, 'C');
+			$pdf->Cell(25, 7, '', 1, 0, 'C');
+			$pdf->Cell(80, 7, '', 1, 0, 'L');
+			$pdf->Cell(20, 7, '', 1, 0, 'C'); // Neto - prazno
+			$pdf->Cell(20, 7, '', 1, 0, 'C'); // Bruto - prazno
+			$pdf->Cell(25, 7, '', 1, 0, 'C'); // Tarifna ozn. - prazno
+			$pdf->Cell(15, 7, '', 1, 1, 'C');
 		}
 	}
 
+	// Razmak između tablica
+	$pdf->Ln(5);
+
+	// Donja tablica - jedan red bez headera
+	$pdf->SetX($pdf->GetX() + $left_margin);
+	$pdf->Cell(25, 7, '', 0, 0, 'C');
+	$pdf->Cell(80, 7, 'Ukupno', 0, 0, 'R');
+	$pdf->Cell(20, 7, '', 1, 0, 'C');
+	$pdf->Cell(20, 7, '', 1, 0, 'C');
+	$pdf->Cell(25, 7, '', 1, 0, 'C');
+	$pdf->Cell(15, 7, '', 1, 1, 'C');
+
 	$pdf->Ln(20);
 
-	
+
 	$pdf->Cell(90, 5, '', 0, 0);
 	$pdf->Cell(0, 5, 'Primatelj robe:  ___________________________________', 0, 1);
 

@@ -2,7 +2,7 @@
 /*
 Plugin Name: KS Otpremnica
 Description: Iz zadane narudžbe kreira otpremnicu za firmu
-Version: 1.7
+Version: 1.8
 Author: Spikey
 */
 
