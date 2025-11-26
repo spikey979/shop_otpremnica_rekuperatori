@@ -169,22 +169,24 @@ function generiraj_otpremnicu($data) {
 	#$pdf->Cell(60, 5, $dodatno_polje_2, 0, 1);
 	$pdf->Ln(10);
  
+    $pdf->SetFont('DejaVu', '', 8);
 
 	// Table header
 	$pdf->SetFillColor(0, 0, 0);
 	$pdf->SetTextColor(255, 255, 255);
 	$pdf->SetX($pdf->GetX() + $left_margin);
 	$pdf->Cell(25, 7, 'Artikl', 1, 0, 'C', true);
-	$pdf->Cell(80, 7, 'Naziv artikla', 1, 0, 'C', true);
-	$pdf->Cell(20, 7, 'Neto', 1, 0, 'C', true);
-	$pdf->Cell(20, 7, 'Bruto', 1, 0, 'C', true);
-	$pdf->Cell(25, 7, 'Tarifna ozn.', 1, 0, 'C', true);
+	$pdf->Cell(73, 7, 'Naziv artikla', 1, 0, 'C', true);
+	$pdf->Cell(18, 7, 'Neto', 1, 0, 'C', true);
+	$pdf->Cell(18, 7, 'Bruto', 1, 0, 'C', true);
+	$pdf->Cell(18, 7, 'Tarifna ozn.', 1, 0, 'C', true);
+	$pdf->Cell(18, 7, 'Br. koleta', 1, 0, 'C', true);
 	$pdf->Cell(15, 7, 'Kol.', 1, 1, 'C', true);
 
 	// Reset text color
 	$pdf->SetTextColor(0, 0, 0);
 
-    $pdf->SetFont('DejaVu', '', 8);
+    $pdf->SetFont('DejaVu', '', 7);
 
 	// Order Items
 	foreach ($items as $item) {
@@ -196,10 +198,11 @@ function generiraj_otpremnicu($data) {
 
 		$pdf->SetX($pdf->GetX() + $left_margin);
 		$pdf->Cell(25, 7, $product_sku, 1, 0, 'C');
-		$pdf->Cell(80, 7, $product_name, 1, 0, 'L');
-		$pdf->Cell(20, 7, '', 1, 0, 'C'); // Neto - prazno
-		$pdf->Cell(20, 7, '', 1, 0, 'C'); // Bruto - prazno
-		$pdf->Cell(25, 7, '', 1, 0, 'C'); // Tarifna ozn. - prazno
+		$pdf->Cell(73, 7, $product_name, 1, 0, 'L');
+		$pdf->Cell(18, 7, '', 1, 0, 'C'); // Neto - prazno
+		$pdf->Cell(18, 7, '', 1, 0, 'C'); // Bruto - prazno
+		$pdf->Cell(18, 7, '', 1, 0, 'C'); // Tarifna ozn. - prazno
+		$pdf->Cell(18, 7, '', 1, 0, 'C'); // Br. koleta - prazno
 		$pdf->Cell(15, 7, $quantity, 1, 1, 'C');
 	}
 
@@ -208,10 +211,11 @@ function generiraj_otpremnicu($data) {
 		for ($i = 0; $i < $dodatni_prazni_retci; $i++) {
 			$pdf->SetX($pdf->GetX() + $left_margin);
 			$pdf->Cell(25, 7, '', 1, 0, 'C');
-			$pdf->Cell(80, 7, '', 1, 0, 'L');
-			$pdf->Cell(20, 7, '', 1, 0, 'C'); // Neto - prazno
-			$pdf->Cell(20, 7, '', 1, 0, 'C'); // Bruto - prazno
-			$pdf->Cell(25, 7, '', 1, 0, 'C'); // Tarifna ozn. - prazno
+			$pdf->Cell(73, 7, '', 1, 0, 'L');
+			$pdf->Cell(18, 7, '', 1, 0, 'C'); // Neto - prazno
+			$pdf->Cell(18, 7, '', 1, 0, 'C'); // Bruto - prazno
+			$pdf->Cell(18, 7, '', 1, 0, 'C'); // Tarifna ozn. - prazno
+			$pdf->Cell(18, 7, '', 1, 0, 'C'); // Br. koleta - prazno
 			$pdf->Cell(15, 7, '', 1, 1, 'C');
 		}
 	}
@@ -224,10 +228,11 @@ function generiraj_otpremnicu($data) {
 	// Donja tablica - jedan red bez headera
 	$pdf->SetX($pdf->GetX() + $left_margin);
 	$pdf->Cell(25, 7, '', 0, 0, 'C');
-	$pdf->Cell(80, 7, 'Ukupno', 0, 0, 'R');
-	$pdf->Cell(20, 7, '', 1, 0, 'C');
-	$pdf->Cell(20, 7, '', 1, 0, 'C');
-	$pdf->Cell(25, 7, '', 1, 0, 'C');
+	$pdf->Cell(73, 7, 'Ukupno', 0, 0, 'R');
+	$pdf->Cell(18, 7, '', 1, 0, 'C');
+	$pdf->Cell(18, 7, '', 1, 0, 'C');
+	$pdf->Cell(18, 7, '', 1, 0, 'C');
+	$pdf->Cell(18, 7, '', 1, 0, 'C');
 	$pdf->Cell(15, 7, '', 1, 1, 'C');
 
 	$pdf->Ln(20);
